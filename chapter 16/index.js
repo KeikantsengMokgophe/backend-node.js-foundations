@@ -1,5 +1,5 @@
 const express = require('express')
-const app = new express()
+const app = express()
 const mongoose = require('mongoose')
 const fileUpload = require('express-fileupload') //Page 80
 
@@ -64,6 +64,8 @@ app.get('/post/:id', getPostController)
 
 app.use((req, res) => res.render('notfound')) //Page 103
 
-app.listen(4000, () => {
-    console.log('App listening on port 4000')
+const PORT = process.env.PORT || 4000
+
+app.listen(PORT, () => {
+    console.log(`App listening on port ${PORT}`)
 })
